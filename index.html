@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        input{
+            padding: 10px;
+            width: 20rem;
+        }
+        div{
+            background-color: rgb(196, 201, 201);
+            border-radius: 5px;
+            width: 400px
+        }
+        form{
+            padding:2rem;
+        }
+        button{
+            padding: 10px;
+            width: 102%;
+            background-color: rgb(196, 201, 201);
+            border: 1px grey solid;
+
+        }
+        button:hover{
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h1>Form Validation</h1>
+        <div>
+            <form action="./s.html">
+                <input type="text" placeholder="Name" id="name" > <br> <br>
+                <input type="text" placeholder="Mobile" id="mobile" >  <br> <br>
+                <input type="email" placeholder="Email" id="email" > <br> <br> 
+                <input type="password" placeholder="Password"id="ps1" >  <br> <br>
+                <input type="password" placeholder="Confirm Password" id="ps2" > <br> <br>
+                <button type="submit" onclick="validate()">Submit</button>
+            </form>
+        </div>
+    </center>
+    <script>
+        function validate(e){
+           let name= document.getElementById("name").value ;
+           let name1= document.getElementById("name");
+           let mobile= document.getElementById("mobile").value ;
+           let mobile1= document.getElementById("mobile");
+           let ps1= document.getElementById("ps1").value ;
+           let ps11= document.getElementById("ps1");
+           let ps2= document.getElementById("ps2").value ;
+           let ps21= document.getElementById("ps2");
+           let email= document.getElementById("email").value ;
+           let email1= document.getElementById("email");
+           let mail=/^([a-z\d]+)@([a-z]{2,9}).([a-z]{2,10})$/;
+           if(name=="" || mobile=="" || ps1=="" || ps2==""){
+            alert("Invalid input");
+            event.preventDefault();
+           }
+           if(ps1 != ps2 || (ps1.length < 5)){
+            alert("Password should be same");
+            ps21.style.border=" 2px solid red";
+            ps11.style.border=" 2px solid red";
+            event.preventDefault();
+           }
+           if(!mail.test(email)){
+            email1.style.border=" 2px solid red";
+            event.preventDefault();
+           }
+
+           
+        }
+    </script>
+</body>
+</html>
